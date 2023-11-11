@@ -1,0 +1,11 @@
+function convertorReversed(a,b,c){
+    let currentString=a+b+c;
+const arr=currentString.split("");
+const arrReversed=[];
+for (let index = arr.length-1; index >= 0; index--) {
+ arrReversed.push(arr[index]);
+    
+}
+console.log(arrReversed.join(" "));
+}
+convertorReversed('A','B','C');
