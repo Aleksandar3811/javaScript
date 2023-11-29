@@ -16,7 +16,7 @@ function solve() {
             this.sumSalaries = 0;
             this.bestSalary = 0;
          }
-         get averageSalary(){
+         get averageSalary() {
             return this.sumSalaries / Object.keys(this.workers).length;
          }
          addWorker(name, salary) {
@@ -67,14 +67,18 @@ function solve() {
       const bestRestaurantOutput = document.querySelector('#bestRestaurant p');
       const bestRestaurantWorkersOutput = document.querySelector('#workers p');
 
-      const inputValue = JSON.parse(input.values);
+      const inputValue = JSON.parse(input.value);
 
       const allRestaurants = new AllRestaurants();
 
       allRestaurants.addRestaurants(inputValue);
+
       const bestRestaurant = allRestaurants.getBestRestaurant();
+
       bestRestaurantOutput.textContent = `Name: ${bestRestaurant.name} Average Salary: ${bestRestaurant.averageSalary.toFixed(2)} Best Salary: ${bestRestaurant.bestSalary.toFixed(2)}`;
+
       const workers = Object.values(bestRestaurant.workers).sort((a, b) => b.salary - a.salary);
+
       let workersOutput = [];
       for (const worker of workers) {
          workersOutput.push(`Name: ${worker.name} With Salary: ${worker.salary}`);
